@@ -9,7 +9,12 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--black);
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -69,4 +74,43 @@ nav {
 
 section {
   padding: 8rem 9rem;
+
+  box-sizing: border-box;
+  height: clamp(20rem, 100vh, 70rem);
+}
+
+#root {
+  background-image: radial-gradient(30rem at var(--x, 10%) var(--y, 10%), rgba(0, 255, 0, 0.2), transparent)
+}
+
+#welcome_section {
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: space-evenly;
+  gap: 10rem;
+
+  .hero {
+    .hero_top {
+      margin-bottom: 2rem;
+    }
+    h1 {
+      line-height: 1;
+    }
+  }
+  .about {
+    text-align: right;
+  }
+}
+
+.skills_list {
+  display: flex;
+  justify-content: space-evenly;
+}
+.skill_card {
+  display: flex;
+  flex-direction: column;
+  img {
+    height: 3rem;
+  }
 }
