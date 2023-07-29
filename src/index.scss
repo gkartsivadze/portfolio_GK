@@ -86,8 +86,11 @@ main {
       gap: 2rem;
       padding: 2rem;
       margin-inline: auto 0;
-      img {
-        width: 4rem;
+      svg {
+        width: 5rem;
+        &:hover {
+          animation: glowIcons 2s infinite;
+        }
       }
       .horizontal_line {
         position: absolute;
@@ -95,12 +98,12 @@ main {
         left: 0; right: 0;
         height: 5px;
 
-        transition: 0.3s;
+        transition: 0.5s;
       }
       @for $i from 1 through 6 {
-        img:nth-of-type(#{$i}):hover ~ .horizontal_line {
-          left: calc(($i - 1) * 6rem);
-          right: calc((6 - $i) * 6rem);
+        svg:nth-of-type(#{$i}):hover ~ .horizontal_line {
+          left: calc(($i - 1) * 7rem);
+          right: calc((6 - $i) * 7rem);
         }
       }
     }
@@ -125,6 +128,13 @@ main {
         background-color: rgba(0, 255, 255, 0.2);
       }
     }
+  }
+}
+
+@keyframes glowIcons {
+  from,
+  to {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   }
 }
 
