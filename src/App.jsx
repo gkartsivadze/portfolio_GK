@@ -1,8 +1,28 @@
-import React from "react"
-// import img1 from "../public/_x32_"
+import { CSSPlugin, Linear, gsap } from "gsap";
+import React, { useEffect, useState } from "react"
 
 function App() {
+  gsap.registerPlugin(CSSPlugin);
+  const [randomNumber, setRandomNumber] = useState(randomInRange(0, 100))
+  
+  function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
+  useEffect(() => {
+    const animation = gsap.to('main', {
+      duration: 10, // Animation duration in seconds
+      ease: Linear,
+      '--pos-x-1': () => `${randomInRange(0, 50)}%`, // Generate random x position (0% to 100%)
+      '--pos-y-1': () => `${randomInRange(0, 100)}%`, // Generate random y position (0% to 100%)
+      '--pos-x-2': () => `${randomInRange(50, 100)}%`, // Generate random x position (0% to 100%)
+      '--pos-y-2': () => `${randomInRange(0, 100)}%`, // Generate random y position (0% to 100%)
+      onComplete() {
+        setRandomNumber(randomInRange(0, 100));
+      }
+    });
+    return () => animation.kill();
+  }, [randomNumber])
   return (
     <main>
       <section id="welcome_section">

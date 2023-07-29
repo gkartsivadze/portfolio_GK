@@ -25,11 +25,9 @@ textarea {
 }
 
 section {
-  box-sizing: border-box;
-  width: 100vw;
   height: 100vh;
-  position: absolute;
-  overflow: hidden;
+  
+  box-sizing: border-box;
 }
 
 .container {
@@ -38,13 +36,11 @@ section {
 }
 
 main {
-  transform-style: preserve-3d;
+  background: radial-gradient(25rem at var(--pos-x-1, 0) var(--pos-y-1, 0), rgb(0, 68, 68), transparent),
+              radial-gradient(25rem at var(--pos-x-2, 75%) var(--pos-y-2, 75%), rgb(0, 68, 68), transparent);
 }
 
 #welcome_section {
-  z-index: 1;
-
-  background-color: rgba(0, 0, 0, 0.2);
 
   padding: 10rem 8rem;
 
@@ -133,9 +129,11 @@ main {
 
 @keyframes glowIcons {
   from,
-  to {
-    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-  }
+  to {filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4))}
+  20% {filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))}
+  40% {filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4))}
+  60% {filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))}
+  80% {filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.4))}
 }
 
 @keyframes pulse {
