@@ -40,6 +40,9 @@ nav {
   bottom: 0;
   left: 50%;
   transform: translate(-50%);
+
+  z-index: 10;
+
   button {
     color: var(--white);
     background-color: transparent;
@@ -157,4 +160,38 @@ main {
   40% {box-shadow: 0 0 1rem var(--cyan)}
   60% {box-shadow: 0 0 2rem var(--cyan)}
   80% {box-shadow: 0 0 1rem var(--cyan)}
+}
+
+#projects_section {
+  position: relative;
+
+  overflow: hidden;
+  .projects_wrapper {
+    width: 150vw;
+    height: 150vh;
+
+    position: absolute;
+    left: -25vw;
+    top: -25vh;
+
+    transform: translate(var(--view-left-position, 0%), var(--view-top-position, 0%));
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+.projects_wrapper {
+  div {
+    &:nth-of-type(1) {background-image: url(./artopia.png); background-size: cover;}
+    &:nth-of-type(2) {background-image: url(./commerce.png); background-size: cover;}
+    &:nth-of-type(3) {background-image: url(./financial.png); background-size: cover;}
+    &:nth-of-type(4) {background-image: url(./furniture_advanced.png); background-size: cover;}
+    &:nth-of-type(5) {background-image: url(./inter_card.png); background-size: cover;}
+    &:nth-of-type(6) {background-image: url(./multistep_form.png); background-size: cover;}
+    &:nth-of-type(7) {background-image: url(./space_tourism.png); background-size: cover;}
+    &:nth-of-type(8) {background-image: url(./url_shortener.png); background-size: cover;}
+    &:nth-of-type(9) {background-image: url(./artopia.png); background-size: cover;}
+  }
 }
