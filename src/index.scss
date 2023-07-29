@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;500;700&family=Poppins:wght@200;400;900&display=swap');
 
 :root {
   --background: #252525;
@@ -7,11 +7,16 @@
   --cyan: #00FFFF;
   --grey: #D1D1D1;
 
-  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
   color-scheme: light dark;
   color: white;
   background-color: var(--background);
+}
+
+:root,
+button,
+input,
+textarea {
+  font-family: "Jura", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -38,52 +43,84 @@ main {
 
 #welcome_section {
   z-index: 1;
-  
+
   background-color: rgba(0, 0, 0, 0.2);
-  
-  padding: 8rem;
+
+  padding: 10rem 8rem;
+
   .container {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    
+
     transform-style: preserve-3d;
-    
+
+    .horizontal_line {
+      height: 10px;
+      background-color: var(--cyan);
+      border-radius: 10px;
+      animation: pulseLine 5s infinite;
+    }
+
     .hero_wrapper {
-      width: fit-content;
-  
+      width: 50rem;
+
       h1 {
-        line-height: 1;
         font-size: 4rem;
+        padding-inline: 1rem;
       }
-  
-      .horizontal_line {
-        height: 10px;
-        background-color: var(--cyan);
-      }
-  
+
       p {
+        padding-inline: 1.5rem;
+        line-height: 1.5;
         font-size: 1.5rem;
-        text-align: right;
       }
     }
-  
+
+    .skills_wrapper {
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+      width: fit-content;
+      gap: 2rem;
+      padding: 2rem;
+      margin-inline: auto 0;
+      img {
+        width: 4rem;
+      }
+      .horizontal_line {
+        position: absolute;
+        bottom: 0;
+        left: 0; right: 0;
+        height: 5px;
+
+        transition: 0.3s;
+      }
+      @for $i from 1 through 6 {
+        img:nth-of-type(#{$i}):hover ~ .horizontal_line {
+          left: calc(($i - 1) * 6rem);
+          right: calc((6 - $i) * 6rem);
+        }
+      }
+    }
+
     button {
       padding: 0.5rem 1rem;
       width: fit-content;
       align-self: center;
       font-size: 2rem;
-  
+
       background-color: transparent;
       border-radius: 0.5rem;
       border: 1px solid var(--cyan);
-  
+
       color: var(--cyan);
-  
+
       cursor: pointer;
-  
+
       animation: pulse 0.5s infinite;
-  
+
       &:hover {
         background-color: rgba(0, 255, 255, 0.2);
       }
@@ -92,7 +129,6 @@ main {
 }
 
 @keyframes pulse {
-
   from,
   to {
     box-shadow: 0 0 1.5rem var(--cyan),
@@ -104,22 +140,10 @@ main {
   }
 }
 
-
-#projects_section {
-  .container {
-    scale: 2;
-    filter: blur(10rem);
-
-    display: grid;
-    gap: 1rem;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    div.main {
-      grid-row: 2 / 4;
-      grid-column: 2 / 4;
-    }
-    div {
-      background-color: var(--cyan)
-    }
-  }
+@keyframes pulseLine {
+  from,to {box-shadow: 0 0 1.5rem var(--cyan)}
+  20% {box-shadow: 0 0 2rem var(--cyan)}
+  40% {box-shadow: 0 0 1rem var(--cyan)}
+  60% {box-shadow: 0 0 2rem var(--cyan)}
+  80% {box-shadow: 0 0 1rem var(--cyan)}
 }
