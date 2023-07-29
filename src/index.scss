@@ -35,13 +35,45 @@ section {
   height: 100%;
 }
 
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  button {
+    color: var(--white);
+    background-color: transparent;
+    border: solid var(--cyan) 0px;
+    outline: none;
+    border-top-width: 1px;
+    border-inline-width: 1px;
+
+    
+    font-size: 2rem;
+    width: 15rem;
+    padding-block: 1rem;
+    text-align: center;
+    
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(0, 255, 255, 0.3)
+    }
+    &:focus {
+      box-shadow: inset 0 -3rem 3rem 0 rgba(0, 255, 255, 0.4);
+    }
+    &:active {
+      color: var(--black);
+      background-color: var(--white)
+    }
+  }
+}
+
 main {
-  background: radial-gradient(25rem at var(--pos-x-1, 0) var(--pos-y-1, 0), rgb(0, 68, 68), transparent),
-              radial-gradient(25rem at var(--pos-x-2, 75%) var(--pos-y-2, 75%), rgb(0, 68, 68), transparent);
+  background: radial-gradient(40rem at var(--pos-x-1, 0) var(--pos-y-1, 0), rgb(0, 68, 68), transparent),
+              radial-gradient(40rem at var(--pos-x-2, 75%) var(--pos-y-2, 75%), rgb(0, 68, 68), transparent);
 }
 
 #welcome_section {
-
   padding: 10rem 8rem;
 
   .container {
@@ -84,8 +116,9 @@ main {
       margin-inline: auto 0;
       svg {
         width: 5rem;
+        transition: 0.3s;
         &:hover {
-          animation: glowIcons 2s infinite;
+          filter: drop-shadow(0 0 10px rgb(255, 255, 255, 75%)) drop-shadow(0 0 15px rgb(255, 255, 255, 45%))
         }
       }
       .horizontal_line {
@@ -103,37 +136,7 @@ main {
         }
       }
     }
-
-    button {
-      padding: 0.5rem 1rem;
-      width: fit-content;
-      align-self: center;
-      font-size: 2rem;
-
-      background-color: transparent;
-      border-radius: 0.5rem;
-      border: 1px solid var(--cyan);
-
-      color: var(--cyan);
-
-      cursor: pointer;
-
-      animation: pulse 0.5s infinite;
-
-      &:hover {
-        background-color: rgba(0, 255, 255, 0.2);
-      }
-    }
   }
-}
-
-@keyframes glowIcons {
-  from,
-  to {filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4))}
-  20% {filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))}
-  40% {filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4))}
-  60% {filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))}
-  80% {filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.4))}
 }
 
 @keyframes pulse {
