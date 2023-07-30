@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 
-import { gsap } from "gsap";
+import { gsap, Sine } from "gsap";
 
 export default function ProjectsSection() {
 
     useEffect(() => {
         function mouseMoveHandler(e) {
             gsap.to(".projects_wrapper", {
-                "--view-left-position": -(e.pageX - window.innerWidth / 2) / window.innerWidth * 40 + "%",
-                "--view-top-position": -(e.pageY - window.innerHeight / 2) / window.innerHeight * 40 + "%"
+                "--view-left-position": -(e.pageX - window.innerWidth / 2) / window.innerWidth * 50 + "%",
+                "--view-top-position": -(e.pageY - window.innerHeight / 2) / window.innerHeight * 50 + "%",
+                ease: Sine
             })
         }
         document.addEventListener("mousemove", mouseMoveHandler)
@@ -18,15 +19,42 @@ export default function ProjectsSection() {
     return (
         <section id="projects_section">
             <div className="projects_wrapper">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
+                <div>
+                    <a href="#">Live</a>
+                    <a href="#">Repo</a>
+                </div>
             </div>
         </section>
     )

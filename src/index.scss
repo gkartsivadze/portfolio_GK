@@ -164,10 +164,11 @@ main {
 
 #projects_section {
   position: relative;
-
   overflow: hidden;
-  .projects_wrapper {
-    width: 150vw;
+}
+
+.projects_wrapper {
+  width: 150vw;
     height: 150vh;
 
     position: absolute;
@@ -179,19 +180,65 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+  div {
+    display: flex;
+    a {
+      display: grid;
+      place-items: center;
+
+      text-decoration: none;
+
+      flex: 1 1 auto;
+      &:hover {
+        animation: gridLineIn 0.2s forwards;
+      }
+      &:nth-of-type(1) {
+        --deg: 90deg;
+      }
+      &:nth-of-type(2) {
+        --deg: 270deg;
+      }
+    }
+    &:nth-of-type(1) {
+      --project-color: grey;
+      background-image: url(./artopia.png); background-size: cover;}
+    &:nth-of-type(2) {
+      --project-color: grey;
+      background-image: url(./commerce.png); background-size: cover;}
+    &:nth-of-type(3) {
+      --project-color: grey;
+      background-image: url(./financial.png); background-size: cover;}
+    &:nth-of-type(4) {
+      --project-color: grey;
+      background-image: url(./furniture_advanced.png); background-size: cover;}
+    &:nth-of-type(5) {
+      --project-color: grey;
+      background-image: url(./inter_card.png); background-size: cover;}
+    &:nth-of-type(6) {
+      --project-color: grey;
+      background-image: url(./multistep_form.png); background-size: cover;}
+    &:nth-of-type(7) {
+      --project-color: grey;
+      background-image: url(./space_tourism.png); background-size: cover;}
+    &:nth-of-type(8) {
+      --project-color: grey;
+      background-image: url(./url_shortener.png); background-size: cover;}
+    &:nth-of-type(9) {
+      --project-color: grey;
+      background-image: url(./artopia.png); background-size: cover;}
   }
 }
 
-.projects_wrapper {
-  div {
-    &:nth-of-type(1) {background-image: url(./artopia.png); background-size: cover;}
-    &:nth-of-type(2) {background-image: url(./commerce.png); background-size: cover;}
-    &:nth-of-type(3) {background-image: url(./financial.png); background-size: cover;}
-    &:nth-of-type(4) {background-image: url(./furniture_advanced.png); background-size: cover;}
-    &:nth-of-type(5) {background-image: url(./inter_card.png); background-size: cover;}
-    &:nth-of-type(6) {background-image: url(./multistep_form.png); background-size: cover;}
-    &:nth-of-type(7) {background-image: url(./space_tourism.png); background-size: cover;}
-    &:nth-of-type(8) {background-image: url(./url_shortener.png); background-size: cover;}
-    &:nth-of-type(9) {background-image: url(./artopia.png); background-size: cover;}
-  }
+@keyframes gridLineIn {
+  0% { background: linear-gradient(var(--deg), transparent, 100%,  var(--project-color)) }
+  10% { background: linear-gradient(var(--deg), transparent, 90%,  var(--project-color)) }
+  20% { background: linear-gradient(var(--deg), transparent, 80%,  var(--project-color)) }
+  30% { background: linear-gradient(var(--deg), transparent, 70%,  var(--project-color)) }
+  40% { background: linear-gradient(var(--deg), transparent, 60%,  var(--project-color)) }
+  50% { background: linear-gradient(var(--deg), transparent, 50%,  var(--project-color)) }
+  60% { background: linear-gradient(var(--deg), transparent, 40%,  var(--project-color)) }
+  70% { background: linear-gradient(var(--deg), transparent, 30%,  var(--project-color)) }
+  80% { background: linear-gradient(var(--deg), transparent, 20%,  var(--project-color)) }
+  90% { background: linear-gradient(var(--deg), transparent, 10%,  var(--project-color)) }
+  100% { background: linear-gradient(var(--deg), transparent, 0%,  var(--project-color)) }
 }
