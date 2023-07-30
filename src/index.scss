@@ -182,9 +182,20 @@ main {
     gap: 1rem;
   div {
     display: flex;
+
+    &:hover {
+      a {
+        opacity: 1;
+      }
+    }
     a {
+      opacity: 0;
+
       display: grid;
       place-items: center;
+
+      font-size: 2rem;
+      color: currentColor;
 
       text-decoration: none;
 
@@ -200,7 +211,7 @@ main {
       }
     }
     &:nth-of-type(1) {
-      --project-color: grey;
+      --project-color: purple;
       background-image: url(./artopia.png); background-size: cover;}
     &:nth-of-type(2) {
       --project-color: grey;
