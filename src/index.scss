@@ -26,7 +26,7 @@ textarea {
 
 section {
   height: 100vh;
-  
+
   box-sizing: border-box;
 }
 
@@ -51,19 +51,22 @@ nav {
     border-top-width: 1px;
     border-inline-width: 1px;
 
-    
+
     font-size: 2rem;
     width: 15rem;
     padding-block: 1rem;
     text-align: center;
-    
+
     cursor: pointer;
+
     &:hover {
       background-color: rgba(0, 255, 255, 0.3)
     }
+
     &:focus {
       box-shadow: inset 0 -3rem 3rem 0 rgba(0, 255, 255, 0.4);
     }
+
     &:active {
       color: var(--black);
       background-color: var(--white)
@@ -73,7 +76,7 @@ nav {
 
 main {
   background: radial-gradient(40rem at var(--pos-x-1, 0) var(--pos-y-1, 0), rgb(0, 68, 68), transparent),
-              radial-gradient(40rem at var(--pos-x-2, 75%) var(--pos-y-2, 75%), rgb(0, 68, 68), transparent);
+    radial-gradient(40rem at var(--pos-x-2, 75%) var(--pos-y-2, 75%), rgb(0, 68, 68), transparent);
 }
 
 #welcome_section {
@@ -96,9 +99,16 @@ main {
     .hero_wrapper {
       width: 50rem;
 
-      h1 {
+      #hero_name {
+        --right-mid-point: 0%;
+        --left-mid-point: 0%;
         font-size: 4rem;
         padding-inline: 1rem;
+
+        background: radial-gradient(10rem at var(--radial-position, -5rem) 50%, cyan, white);
+        color: transparent;
+        -webkit-background-clip: text;
+                background-clip: text;
       }
 
       p {
@@ -117,23 +127,28 @@ main {
       gap: 2rem;
       padding: 2rem;
       margin-inline: auto 0;
+
       svg {
         width: 5rem;
         transition: 0.3s;
+
         &:hover {
           filter: drop-shadow(0 0 10px rgb(255, 255, 255, 75%)) drop-shadow(0 0 15px rgb(255, 255, 255, 45%))
         }
       }
+
       .horizontal_line {
         position: absolute;
         bottom: 0;
-        left: 0; right: 0;
+        left: 0;
+        right: 0;
         height: 5px;
 
         transition: 0.5s;
       }
+
       @for $i from 1 through 6 {
-        svg:nth-of-type(#{$i}):hover ~ .horizontal_line {
+        svg:nth-of-type(#{$i}):hover~.horizontal_line {
           left: calc(($i - 1) * 7rem);
           right: calc((6 - $i) * 7rem);
         }
@@ -143,6 +158,7 @@ main {
 }
 
 @keyframes pulse {
+
   from,
   to {
     box-shadow: 0 0 1.5rem var(--cyan),
@@ -155,11 +171,27 @@ main {
 }
 
 @keyframes pulseLine {
-  from,to {box-shadow: 0 0 1.5rem var(--cyan)}
-  20% {box-shadow: 0 0 2rem var(--cyan)}
-  40% {box-shadow: 0 0 1rem var(--cyan)}
-  60% {box-shadow: 0 0 2rem var(--cyan)}
-  80% {box-shadow: 0 0 1rem var(--cyan)}
+
+  from,
+  to {
+    box-shadow: 0 0 1.5rem var(--cyan)
+  }
+
+  20% {
+    box-shadow: 0 0 2rem var(--cyan)
+  }
+
+  40% {
+    box-shadow: 0 0 1rem var(--cyan)
+  }
+
+  60% {
+    box-shadow: 0 0 2rem var(--cyan)
+  }
+
+  80% {
+    box-shadow: 0 0 1rem var(--cyan)
+  }
 }
 
 #projects_section {
@@ -169,25 +201,26 @@ main {
 
 .projects_wrapper {
   width: 150vw;
-    height: 150vh;
+  height: 150vh;
 
-    position: absolute;
-    left: -25vw;
-    top: -25vh;
+  position: absolute;
+  left: -25vw;
+  top: -25vh;
 
-    transform: translate(var(--view-left-position, 0%), var(--view-top-position, 0%));
+  transform: translate(var(--view-left-position, 0%), var(--view-top-position, 0%));
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+
+  
   div {
     display: flex;
 
     &:hover {
-      a {
-        opacity: 1;
-      }
+      box-shadow: inset 0 0 3rem rgba(255, 255, 255, 0.4);
     }
+
     a {
       opacity: 0;
 
@@ -200,56 +233,159 @@ main {
       text-decoration: none;
 
       flex: 1 1 auto;
+
       &:hover {
         animation: gridLineIn 0.2s forwards;
+        opacity: 1;
       }
+
       &:nth-of-type(1) {
         --deg: 90deg;
       }
+
       &:nth-of-type(2) {
         --deg: 270deg;
       }
     }
+
     &:nth-of-type(1) {
-      --project-color: purple;
-      background-image: url(./artopia.png); background-size: cover;}
+      --project-color: rgba(128, 0, 128, 0.5);
+      background-image: url(./artopia.png);
+      background-size: cover;
+    }
+
     &:nth-of-type(2) {
-      --project-color: grey;
-      background-image: url(./commerce.png); background-size: cover;}
+      --project-color: rgba(255, 166, 0, 0.5);
+      background-image: url(./commerce.png);
+      background-size: cover;
+    }
+
     &:nth-of-type(3) {
-      --project-color: grey;
-      background-image: url(./financial.png); background-size: cover;}
+      --project-color: rgba(0, 0, 255, 0.5);
+      background-image: url(./financial.png);
+      background-size: cover;
+    }
+
     &:nth-of-type(4) {
-      --project-color: grey;
-      background-image: url(./furniture_advanced.png); background-size: cover;}
+      --project-color: rgb(66, 0, 117, 0.5);
+      background-image: url(./furniture_advanced.png);
+      background-size: cover;
+    }
+
     &:nth-of-type(5) {
-      --project-color: grey;
-      background-image: url(./inter_card.png); background-size: cover;}
+      --project-color: rgb(75, 0, 115, 0.5);
+      background-image: url(./inter_card.png);
+      background-size: cover;
+    }
+
     &:nth-of-type(6) {
-      --project-color: grey;
-      background-image: url(./multistep_form.png); background-size: cover;}
+      --project-color: rgb(0, 124, 181, 0.5);
+      background-image: url(./multistep_form.png);
+      background-size: cover;
+    }
+
     &:nth-of-type(7) {
-      --project-color: grey;
-      background-image: url(./space_tourism.png); background-size: cover;}
+      --project-color: rgba(128, 128, 128, 0.5);
+      background-image: url(./space_tourism.png);
+      background-size: cover;
+    }
+
     &:nth-of-type(8) {
-      --project-color: grey;
-      background-image: url(./url_shortener.png); background-size: cover;}
+      --project-color: rgb(0, 181, 181, 0.5);
+      background-image: url(./url_shortener.png);
+      background-size: cover;
+    }
+
     &:nth-of-type(9) {
-      --project-color: grey;
-      background-image: url(./artopia.png); background-size: cover;}
+      --project-color: rgba(128, 0, 128, 0.5);
+      background-image: url(./tictac.webp);
+      background-size: cover;
+    }
   }
 }
 
 @keyframes gridLineIn {
-  0% { background: linear-gradient(var(--deg), transparent, 100%,  var(--project-color)) }
-  10% { background: linear-gradient(var(--deg), transparent, 90%,  var(--project-color)) }
-  20% { background: linear-gradient(var(--deg), transparent, 80%,  var(--project-color)) }
-  30% { background: linear-gradient(var(--deg), transparent, 70%,  var(--project-color)) }
-  40% { background: linear-gradient(var(--deg), transparent, 60%,  var(--project-color)) }
-  50% { background: linear-gradient(var(--deg), transparent, 50%,  var(--project-color)) }
-  60% { background: linear-gradient(var(--deg), transparent, 40%,  var(--project-color)) }
-  70% { background: linear-gradient(var(--deg), transparent, 30%,  var(--project-color)) }
-  80% { background: linear-gradient(var(--deg), transparent, 20%,  var(--project-color)) }
-  90% { background: linear-gradient(var(--deg), transparent, 10%,  var(--project-color)) }
-  100% { background: linear-gradient(var(--deg), transparent, 0%,  var(--project-color)) }
+  0% {
+    background: linear-gradient(var(--deg), transparent 100%, 100%, var(--project-color))
+  }
+
+  5% {
+    background: linear-gradient(var(--deg), transparent 95%, 95%, var(--project-color))
+  }
+
+  10% {
+    background: linear-gradient(var(--deg), transparent 90%, 90%, var(--project-color))
+  }
+
+  15% {
+    background: linear-gradient(var(--deg), transparent 85%, 85%, var(--project-color))
+  }
+
+  20% {
+    background: linear-gradient(var(--deg), transparent 80%, 80%, var(--project-color))
+  }
+
+  25% {
+    background: linear-gradient(var(--deg), transparent 75%, 75%, var(--project-color))
+  }
+
+  30% {
+    background: linear-gradient(var(--deg), transparent 70%, 70%, var(--project-color))
+  }
+
+  35% {
+    background: linear-gradient(var(--deg), transparent 65%, 65%, var(--project-color))
+  }
+
+  40% {
+    background: linear-gradient(var(--deg), transparent 60%, 60%, var(--project-color))
+  }
+
+  45% {
+    background: linear-gradient(var(--deg), transparent 55%, 55%, var(--project-color))
+  }
+
+  50% {
+    background: linear-gradient(var(--deg), transparent 50%, 50%, var(--project-color))
+  }
+
+  55% {
+    background: linear-gradient(var(--deg), transparent 45%, 45%, var(--project-color))
+  }
+
+  60% {
+    background: linear-gradient(var(--deg), transparent 40%, 40%, var(--project-color))
+  }
+
+  65% {
+    background: linear-gradient(var(--deg), transparent 35%, 35%, var(--project-color))
+  }
+
+  70% {
+    background: linear-gradient(var(--deg), transparent 30%, 30%, var(--project-color))
+  }
+
+  75% {
+    background: linear-gradient(var(--deg), transparent 25%, 25%, var(--project-color))
+  }
+
+  80% {
+    background: linear-gradient(var(--deg), transparent 20%, 20%, var(--project-color))
+  }
+
+  85% {
+    background: linear-gradient(var(--deg), transparent 15%, 15%, var(--project-color))
+  }
+
+  90% {
+    background: linear-gradient(var(--deg), transparent 10%, 10%, var(--project-color))
+  }
+
+  95% {
+    background: linear-gradient(var(--deg), transparent 5%, 5%, var(--project-color))
+  }
+
+  100% {
+    background: linear-gradient(var(--deg), transparent 0%, 0%, var(--project-color))
+  }
 }

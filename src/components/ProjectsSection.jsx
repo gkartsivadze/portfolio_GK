@@ -19,39 +19,39 @@ export default function ProjectsSection() {
     return (
         <section id="projects_section">
             <div className="projects_wrapper">
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
-                <div>
+                <div className="project_box">
                     <a href="#">Live</a>
                     <a href="#">Repo</a>
                 </div>
