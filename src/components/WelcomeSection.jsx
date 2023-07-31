@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { gsap, CSSPlugin, Linear } from "gsap";
 
-export default function WelcomeSection() {
+export default function WelcomeSection({ currentPage }) {
   gsap.registerPlugin(CSSPlugin);
   const [randomNumber, setRandomNumber] = useState(gsap.utils.random(25, 115))
 
   useEffect(() => {
     const animation = gsap.to('main', {
       duration: 10, // Animation duration in seconds
-      ease: Linear,
+      ease: "none",
       '--pos-x-1': () => `${gsap.utils.random(0, 50)}%`, // Generate random x position (0% to 100%)
       '--pos-y-1': () => `${gsap.utils.random(0, 100)}%`, // Generate random y position (0% to 100%)
       '--pos-x-2': () => `${gsap.utils.random(50, 100)}%`, // Generate random x position (0% to 100%)
@@ -27,9 +27,10 @@ export default function WelcomeSection() {
       "--radial-position": "100%"
     }).repeat(-1)
       .duration(3)
+      return () => hero_animation.kill()
   }, [])
     return (
-        <section id="welcome_section">
+        <section id="welcome_section" className={currentPage != "welcome" && "hide"}>
           <div className="container">
           <div className="hero_wrapper">
             <h1 id="hero_name">GIORGI KARTSIVADZE</h1>

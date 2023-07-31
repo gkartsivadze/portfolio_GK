@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 
+import ProjectBlock from "./ProjectBlock"
+
 import { gsap, Sine } from "gsap";
 
-export default function ProjectsSection() {
+import { projects } from "../projects.json"
+
+export default function ProjectsSection({ motionActive }) {
 
     useEffect(() => {
         function mouseMoveHandler(e) {
@@ -12,49 +16,18 @@ export default function ProjectsSection() {
                 ease: Sine
             })
         }
-        document.addEventListener("mousemove", mouseMoveHandler)
+        if(motionActive) {
+            document.addEventListener("mousemove", mouseMoveHandler)
+        }
         return () => document.removeEventListener("mousemove", mouseMoveHandler)
-    }, [])
+    }, [motionActive])
 
     return (
-        <section id="projects_section">
+        <section id="projects_section" className={!motionActive && "hide"}>
             <div className="projects_wrapper">
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
-                <div className="project_box">
-                    <a href="#">Live</a>
-                    <a href="#">Repo</a>
-                </div>
+                {
+                    projects.map(data => <ProjectBlock key={data.id} liveLink={data.liveUrl} repoLink={data.repoUrl} />)
+                }
             </div>
         </section>
     )

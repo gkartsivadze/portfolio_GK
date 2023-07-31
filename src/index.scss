@@ -26,8 +26,12 @@ textarea {
 
 section {
   height: 100vh;
+  width: 100vw;
+
+  position: absolute;
 
   box-sizing: border-box;
+  transition: 0.5s;
 }
 
 .container {
@@ -75,13 +79,22 @@ nav {
 }
 
 main {
+  overflow: hidden;
+  height: 100vh;
   background: radial-gradient(40rem at var(--pos-x-1, 0) var(--pos-y-1, 0), rgb(0, 68, 68), transparent),
     radial-gradient(40rem at var(--pos-x-2, 75%) var(--pos-y-2, 75%), rgb(0, 68, 68), transparent);
 }
 
 #welcome_section {
+  z-index: 1;
   padding: 10rem 8rem;
 
+  transition: 0.3s;
+
+  animation: welcomeShow 0.5s forwards;
+  &.hide {
+    animation: welcomeHide 0.5s forwards;
+  }
   .container {
     display: flex;
     justify-content: space-between;
@@ -157,6 +170,29 @@ main {
   }
 }
 
+@keyframes welcomeHide {
+  90% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+    display: none;
+  }
+}
+
+@keyframes welcomeShow {
+  0% {
+    display: block;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0%);
+  }
+}
+
 @keyframes pulse {
 
   from,
@@ -197,6 +233,10 @@ main {
 #projects_section {
   position: relative;
   overflow: hidden;
+  &.hide {
+    opacity: 0;
+    transform: translateY(100%);
+  }
 }
 
 .projects_wrapper {

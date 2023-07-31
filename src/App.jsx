@@ -10,8 +10,8 @@ function App() {
     <>
       <Navigation currentPage={selectedPage} selectHandler={setSelectedPage} />
       <main>
-        {selectedPage == "welcome" && <WelcomeSection />}
-        {selectedPage != "welcome" && <ProjectsSection />}
+        <WelcomeSection currentPage={selectedPage} />
+        <ProjectsSection motionActive={selectedPage == "projects"} />
       </main>
     </>
   )
