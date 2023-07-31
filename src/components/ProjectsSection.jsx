@@ -23,7 +23,7 @@ export default function ProjectsSection({ motionActive }) {
     }, [motionActive])
 
     return (
-        <section id="projects_section" className={!motionActive && "hide"}>
+        <section id="projects_section" className={motionActive ? undefined : "hide"}>
             <div className="projects_wrapper">
                 {
                     projects.map(data => <ProjectBlock key={data.id} liveLink={data.liveUrl} repoLink={data.repoUrl} />)

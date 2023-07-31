@@ -30,7 +30,7 @@ export default function WelcomeSection({ currentPage }) {
       return () => hero_animation.kill()
   }, [])
     return (
-        <section id="welcome_section" className={currentPage != "welcome" && "hide"}>
+        <section id="welcome_section" className={currentPage == "welcome" ? undefined : "hide"}>
           <div className="container">
           <div className="hero_wrapper">
             <h1 id="hero_name">GIORGI KARTSIVADZE</h1>
