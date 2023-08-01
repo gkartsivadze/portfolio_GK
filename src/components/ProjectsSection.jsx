@@ -1,34 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useRef } from "react";
+
+import useResize from "../hooks/useResize";
+import useLookoutAnimation from "../hooks/useLookoutAnimation";
 
 import ProjectBlock from "./ProjectBlock"
-
-import { gsap, Sine } from "gsap";
+import Controller from "./Controller";
 
 import { projects } from "../projects.json"
 
 export default function ProjectsSection({ motionActive }) {
-
-    useEffect(() => {
-        function mouseMoveHandler(e) {
-            gsap.to(".projects_wrapper", {
-                "--view-left-position": -(e.pageX - window.innerWidth / 2) / window.innerWidth * 50 + "%",
-                "--view-top-position": -(e.pageY - window.innerHeight / 2) / window.innerHeight * 50 + "%",
-                ease: Sine
-            })
-        }
-        if(motionActive) {
-            document.addEventListener("mousemove", mouseMoveHandler)
-        }
-        return () => document.removeEventListener("mousemove", mouseMoveHandler)
-    }, [motionActive])
-
+    const windowWidth = useResize();
+    const animation = useLookoutAnimation( motionActive, windowWidth );
+    const projects_container = useRef();
+    
     return (
-        <section id="projects_section" className={motionActive ? undefined : "hide"}>
+        <section ref={projects_container} id="projects_section" className={motionActive ? undefined : "hide"}>
             <div className="projects_wrapper">
                 {
                     projects.map(data => <ProjectBlock key={data.id} liveLink={data.liveUrl} repoLink={data.repoUrl} />)
                 }
             </div>
+            {windowWidth <= 500 && <Controller container={projects_container} />}
         </section>
     )
 };

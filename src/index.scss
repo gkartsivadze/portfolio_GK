@@ -535,6 +535,31 @@ main {
   }
 }
 
+#controller_wrapper {
+  position: absolute;
+  bottom: 5rem;
+  width: 10rem; height: 10rem;
+  background-color: rgba(128, 128, 128, 0.2);
+
+  border-radius: 50%;
+  left: calc(50% - 5rem);
+  #controller {
+    pointer-events: none;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 2rem;
+    height: 2rem;
+
+    background-color: cyan;
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%)
+  }
+}
+
 @keyframes formShowUp {
   from {
     width: 1px;
