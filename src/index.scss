@@ -50,8 +50,7 @@ section {
 nav {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
+  left: calc(50% - 15rem);
 
   z-index: 10;
 
@@ -93,6 +92,18 @@ main {
     radial-gradient(40rem at var(--pos-x-2, 75%) var(--pos-y-2, 75%), rgb(0, 68, 68), transparent);
 }
 
+#hero_name {
+  --right-mid-point: 0%;
+  --left-mid-point: 0%;
+  font-size: 4rem;
+  padding-inline: 1rem;
+
+  background: radial-gradient(10rem at var(--radial-position, -5rem) 50%, cyan, white);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 #welcome_section {
   z-index: 1;
   padding: 10rem 8rem;
@@ -100,9 +111,11 @@ main {
   transition: 0.3s;
 
   animation: welcomeShow 0.5s forwards;
+
   &.hide {
     animation: welcomeHide 0.5s forwards;
   }
+
   .container {
     display: flex;
     justify-content: space-between;
@@ -119,18 +132,6 @@ main {
 
     .hero_wrapper {
       width: 50rem;
-
-      #hero_name {
-        --right-mid-point: 0%;
-        --left-mid-point: 0%;
-        font-size: 4rem;
-        padding-inline: 1rem;
-
-        background: radial-gradient(10rem at var(--radial-position, -5rem) 50%, cyan, white);
-        color: transparent;
-        -webkit-background-clip: text;
-                background-clip: text;
-      }
 
       p {
         padding-inline: 1.5rem;
@@ -183,6 +184,7 @@ main {
     opacity: 0;
     transform: translateY(-100%);
   }
+
   100% {
     opacity: 0;
     transform: translateY(-100%);
@@ -195,6 +197,7 @@ main {
     display: block;
     transform: translateY(-100%);
   }
+
   100% {
     opacity: 1;
     transform: translate(0%);
@@ -241,6 +244,7 @@ main {
 #projects_section {
   position: relative;
   overflow: hidden;
+
   &.hide {
     opacity: 0;
     transform: translateY(100%);
@@ -261,7 +265,7 @@ main {
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
 
-  
+
   div {
     display: flex;
 
@@ -368,7 +372,7 @@ main {
   15% {
     background: linear-gradient(var(--deg), transparent 85%, 85%, var(--project-color))
   }
-  
+
   20% {
     background: linear-gradient(var(--deg), transparent 80%, 80%, var(--project-color))
   }
@@ -376,7 +380,7 @@ main {
   25% {
     background: linear-gradient(var(--deg), transparent 75%, 75%, var(--project-color))
   }
-  
+
   30% {
     background: linear-gradient(var(--deg), transparent 70%, 70%, var(--project-color));
     transform: scale(1);
@@ -442,13 +446,15 @@ main {
 }
 
 #contact_section {
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 10;
 
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   backdrop-filter: blur(5px);
+
+  padding: 2rem;
   &.hide {
     form {
       animation: formHide 0.3s forwards;
@@ -458,7 +464,7 @@ main {
   form {
     position: relative;
 
-    
+
     overflow: hidden;
 
     display: grid;
@@ -471,7 +477,10 @@ main {
     animation: formShowUp 0.3s forwards;
 
 
-    textarea, #send_button, input[type="text"], input[type="email"] {
+    textarea,
+    #send_button,
+    input[type="text"],
+    input[type="email"] {
       font-size: 1.5rem;
       display: block;
       width: 100%;
@@ -485,30 +494,40 @@ main {
 
     #send_button {
       border: 3px solid cyan;
+
       &:hover {
         background-color: rgba(0, 255, 255, 0.3);
       }
     }
-    textarea, input[type="text"], input[type="email"] {
+
+    textarea,
+    input[type="text"],
+    input[type="email"] {
       border-image: linear-gradient(to bottom, cyan, transparent) 1;
     }
+
     textarea {
       resize: vertical;
 
       min-height: 5rem;
       max-height: 7rem;
     }
-    #textarea_label , #send_button {
+
+    #textarea_label,
+    #send_button {
       grid-column: 1 / 3;
     }
+
     #close_button {
       border: none;
       position: absolute;
       right: 1rem;
       top: 1rem;
+
       svg {
         transition: 0.3s;
       }
+
       &:hover svg {
         filter: drop-shadow(0 0 3px cyan)
       }
@@ -535,22 +554,79 @@ main {
     padding: 4rem 8rem;
   }
 }
+
 @keyframes formHide {
   from {
     width: 50rem;
     height: 20rem;
     padding: 4rem 8rem;
   }
-  
+
   50% {
     width: 50rem;
     padding: 0 8rem;
     height: 1px;
   }
-  
+
   to {
     width: 1px;
     height: 1px;
     padding: 0;
+  }
+}
+
+
+@media (max-height: 750px) {
+  #welcome_section {
+    padding: 15vh 8rem;
+  }
+}
+
+@media (max-width: 1250px) {
+  #hero_name {
+    font-size: 3rem;
+  }
+  #welcome_section .container {
+
+    .hero_wrapper {
+      .horizontal_line {
+        width: 60vw;
+        height: min(1vh, 1vw);
+      }
+
+    }
+  }
+  
+  #welcome_section .container .skills_wrapper {
+    padding: 0.5rem 2rem;
+    svg {
+      width: 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  #contact_section form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 960px) {
+  :root {
+    font-size: clamp(12px, 1.5vw, 16px);
+  }
+}
+
+@media (max-width: 800px) {
+  #welcome_section {
+    padding: 8rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #hero_name {
+    font-size: 2rem;
   }
 }
