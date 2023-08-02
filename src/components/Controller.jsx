@@ -16,7 +16,8 @@ export default function Controller({ container }) {
         function handleLookout(e) {
             controllerRef.current.style.left = e.offsetX + "px";
             controllerRef.current.style.top = e.offsetY + "px";
-            container.current.style.left = e.offsetX + "px";
+            container.current.style.left = -e.offsetX + "px";
+            container.current.style.top = -e.offsetY + "px";
         }
         
         return () => {

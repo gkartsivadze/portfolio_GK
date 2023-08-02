@@ -14,8 +14,8 @@ export default function ProjectsSection({ motionActive }) {
     const projects_container = useRef();
     
     return (
-        <section ref={projects_container} id="projects_section" className={motionActive ? undefined : "hide"}>
-            <div className="projects_wrapper">
+        <section id="projects_section" className={motionActive ? undefined : "hide"}>
+            <div ref={projects_container} className="projects_wrapper">
                 {
                     projects.map(data => <ProjectBlock key={data.id} liveLink={data.liveUrl} repoLink={data.repoUrl} />)
                 }
