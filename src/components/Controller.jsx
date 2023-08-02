@@ -6,11 +6,11 @@ export default function Controller({ container }) {
     const [activeState, setActiveState] = useState(false);
     
     useEffect(() => {
-        wrapperRef.current.addEventListener("mousedown", enableState)
+        wrapperRef.current.addEventListener("touchstart", enableState)
 
         if(activeState) {
-            wrapperRef.current.addEventListener("mousemove", handleLookout);
-            window.addEventListener("mouseup", disableState);
+            wrapperRef.current.addEventListener("touchmove", handleLookout);
+            window.addEventListener("touchend", disableState);
         }
 
         function handleLookout(e) {
@@ -21,9 +21,9 @@ export default function Controller({ container }) {
         }
         
         return () => {
-            window?.removeEventListener("mouseup", disableState);
-            wrapperRef.current?.removeEventListener("mousemove", handleLookout);
-            wrapperRef.current?.removeEventListener("mousedown", enableState)
+            window?.removeEventListener("touchend", disableState);
+            wrapperRef.current?.removeEventListener("touchmove", handleLookout);
+            wrapperRef.current?.removeEventListener("touchstart", enableState)
         }
     }, [activeState])
 
