@@ -21,14 +21,14 @@ export default function ContactForm({ setContactForm }) {
         document.getElementById("send_button").setAttribute("disabled", true)
         document.getElementById("send_button").innerText = ""
         emailjs.sendForm('service_0k7yua7', 'template_0qcmeep', formRef.current, 'EA-3RrG_w1F1m5nHq')
-        .then((result) => {
+        .then(() => {
             document.getElementById("send_button").innerText = "Thank you!"
             document.getElementById("send_button").classList.remove("loading");
             setTimeout(() => {
                 closeForm();
             }, 1200)
         }, (error) => {
-            console.log(error.text);
+            alert(error.text);
             document.getElementById("send_button").removeAttribute("disabled")
             });
     }
