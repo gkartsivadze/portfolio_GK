@@ -50,7 +50,7 @@ section {
 nav {
   position: fixed;
   bottom: 0;
-  left: calc(50% - 22.5rem);
+  left: calc(50% - 12.5rem);
 
   z-index: 10;
   display: flex;
@@ -60,9 +60,17 @@ nav {
     display: block;
   }
 
-  button svg {
+  svg {
     width: 2rem;
     height: 2rem;
+  }
+
+  a:nth-of-type(1), button {
+    width: 5rem;
+  }
+
+  a:nth-of-type(2) {
+    width: 15rem;
   }
 
   button,
@@ -76,7 +84,6 @@ nav {
 
 
     font-size: 2rem;
-    width: 15rem;
     padding-block: 1rem;
     text-align: center;
 
@@ -120,12 +127,14 @@ main {
 
   transition: 0.3s;
 
-  animation: welcomeShow 0.5s forwards;
+  animation: welcomeShow 0.3s forwards;
 
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
+  &.hide {
+    animation: welcomeHide 0.3s forwards;
+  }
   .horizontal_line {
     height: 10px;
     background-color: var(--cyan);
@@ -183,13 +192,23 @@ main {
 
 @keyframes welcomeShow {
   0% {
-    display: block;
     transform: translateY(-100%);
   }
 
   100% {
     opacity: 1;
     transform: translate(0%);
+  }
+}
+
+@keyframes welcomeHide {
+  0% {
+    opacity: 1;
+    transform: translate(0%);
+  }
+  
+  100% {
+    transform: translateY(-100%);
   }
 }
 
@@ -235,16 +254,21 @@ main {
   overflow: hidden;
 
   animation: projectsShow 0.5s forwards;
+  transition: opacity 0.3s;
+  &.hide {
+    animation: projectsHide 0.3s forwards;
+  }
 }
 
 @keyframes projectsShow {
-  from {
-    transform: translateY(100%)
-  }
+  from {opacity: 0;}
 
-  to {
-    transform: translateY(0%)
-  }
+  to {opacity: 1;}
+}
+@keyframes projectsHide {
+  from {opacity: 1;}
+
+  to {opacity: 0;}
 }
 
 .projects_wrapper {
@@ -263,7 +287,7 @@ main {
 
 
   div {
-
+    display: flex;
     &:hover {
       box-shadow: inset 0 0 3rem rgba(255, 255, 255, 0.4);
     }
@@ -441,8 +465,10 @@ main {
 }
 
 #contact_section {
+  position: absolute;
   inset: 0;
   z-index: 10;
+
 
   display: flex;
   align-items: center;
@@ -667,13 +693,13 @@ main {
     .project_box {
       transition: 0.5s;
       width: 90%;
-      height: 20rem;
+      aspect-ratio: 16 / 9;
 
       display: flex;
       align-items: end;
       a {
         opacity: 1;
-        height: 5rem;
+        height: 30%;
         background-color: var(--project-color);
         &:hover {
           animation: none;
