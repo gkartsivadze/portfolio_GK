@@ -1,20 +1,18 @@
 import React, { useState } from "react"
 
-import Navigation from "./components/Navigation";
-import WelcomeSection from "./components/WelcomeSection";
-import ProjectsSection from "./components/ProjectsSection";
-import ContactForm from "./components/ContactForm";
+import Navigation from "./components/Navigation"
+import ContactForm from './components/ContactForm'
+
+import { Outlet } from "react-router-dom";
 
 function App() {
-  const [selectedPage, setSelectedPage] = useState("welcome");
   const [contactFormState, setContactFormState] = useState(false)
   return (
     <>
-      <Navigation setContactForm={setContactFormState} currentPage={selectedPage} selectHandler={setSelectedPage} />
+      <Navigation setContactForm={setContactFormState} />
       <main>
-        <WelcomeSection currentPage={selectedPage} />
-        <ProjectsSection motionActive={selectedPage == "projects"} />
-        {contactFormState && <ContactForm setState={setContactFormState} />}
+        <Outlet />
+        {contactFormState && <ContactForm setContactForm={setContactFormState} />}
       </main>
     </>
   )

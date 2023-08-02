@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { gsap, CSSPlugin, Linear } from "gsap";
+import { gsap, CSSPlugin } from "gsap";
 
-export default function WelcomeSection({ currentPage }) {
+export default function Welcome() {
   gsap.registerPlugin(CSSPlugin);
   const [randomNumber, setRandomNumber] = useState(gsap.utils.random(25, 115))
 
@@ -30,8 +30,7 @@ export default function WelcomeSection({ currentPage }) {
     return () => hero_animation.kill()
   }, [])
   return (
-    <section id="welcome_section" className={currentPage == "welcome" ? undefined : "hide"}>
-      <div className="container">
+    <section id="welcome_section">
         <div className="hero_wrapper">
           <h1 id="hero_name">GIORGI KARTSIVADZE</h1>
           <div className="horizontal_line"></div>
@@ -46,7 +45,6 @@ export default function WelcomeSection({ currentPage }) {
           <svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" fill="none" xmlns:v="https://vecta.io/nano" viewBox="0 0 76 76" ><path d="M38.401 44.328c-1.127.518-2.362 1.193-4.835 2.55l-2.829 1.552-.192-.209c-4.891-5.227-13.938-8.918-13.554-15.937.143-2.557 1.022-9.269 17.374-17.421 13.458-6.633 24.166-4.795 26.016-.719 2.658 5.81-5.74 16.622-19.638 18.19-1.538.312-3.127.274-4.649-.11s-2.937-1.106-4.143-2.112c-.736-.799-.846-.846-1.118-.687-.448.234-.159.959 0 1.374.53.96 1.247 1.804 2.109 2.482s1.851 1.176 2.909 1.465a26.72 26.72 0 0 0 16.303-1.615c8.423-3.26 15-12.323 13.073-19.922-1.934-7.704-14.721-10.245-26.819-5.946a60.94 60.94 0 0 0-20.602 11.829c-6.666 6.234-7.72 11.653-7.289 13.922 1.551 8.055 12.656 13.298 17.109 17.182l-.607.335c-2.222 1.104-10.692 5.531-12.804 10.214-2.398 5.306.384 9.11 2.222 9.621a13.67 13.67 0 0 0 14.721-5.963c1.297-1.993 2.093-4.269 2.321-6.636s-.119-4.753-1.011-6.957a11.8 11.8 0 0 1 1.678-1.118c1.134-.67 2.215-1.331 3.173-1.842a24.55 24.55 0 0 1 10.488-2.318c7.608.895 9.11 5.641 8.822 7.641-.135.709-.42 1.381-.837 1.971s-.954 1.084-1.578 1.448c-.527.335-.703.448-.656.687.063.352.319.335.766.272a5.94 5.94 0 0 0 4.139-5.29c.234-4.687-4.235-9.83-12.148-9.783a18.17 18.17 0 0 0-6.905 1.376 14.94 14.94 0 0 0-1.024.469l.012.007zM27.092 62.701c-2.527 2.749-6.042 3.787-7.561 2.909-1.641-.937-.991-5.004 2.109-7.912a40.27 40.27 0 0 1 5.93-4.427c.368-.234.912-.544 1.566-.937l.176-.096.384-.234a10.92 10.92 0 0 1 .146 5.702c-.457 1.88-1.406 3.605-2.75 4.997z" fill="#0ff" /></svg>
           <div className="horizontal_line"></div>
         </div>
-      </div>
     </section>
   )
 };

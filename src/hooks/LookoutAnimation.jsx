@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { gsap, Sine } from "gsap";
 
-export default function useLookoutAnimation(activeState, windowWidth) {
+export default function LookoutAnimation(windowWidth) {
 
     useEffect(() => {
         function mouseMoveHandler(e) {
@@ -15,9 +15,9 @@ export default function useLookoutAnimation(activeState, windowWidth) {
                 ease: Sine
             })
         }
-        if(activeState && windowWidth > 500) {
+        if(windowWidth > 600) {
             document.addEventListener("mousemove", mouseMoveHandler)
         }
         return () => document.removeEventListener("mousemove", mouseMoveHandler)
-    }, [activeState, windowWidth])
+    }, [windowWidth])
 }
