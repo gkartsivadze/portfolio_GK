@@ -19,9 +19,9 @@ export default function Projects() {
         }
     },[loadedImagesCounter])
     return (
-        <section id="projects_section">
+        <section id="projects_section" className={loadingState ? "hidden" : undefined}>
             {loadingState && <Loading />}
-            <div className={`projects_wrapper ${loadingState ? "hidden" : undefined}`}>
+            <div className="projects_wrapper">
                 {
                     projects.map(data => <ProjectBlock loadedEventListener={setLoadedImagesCounter} key={data.id} imgSrc={data.imgSrc} liveLink={data.liveUrl} repoLink={data.repoUrl} />)
                 }

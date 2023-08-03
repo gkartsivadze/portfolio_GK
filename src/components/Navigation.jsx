@@ -9,13 +9,13 @@ export default function Navigation({ setContactForm }) {
     e.preventDefault()
     switch(link) {
       case 0:
-        document.getElementById("projects_section").classList.add("hide");
+        document.getElementById("projects_section")?.classList.add("hide");
         setTimeout(() => {
           navigate("/")
         }, 300)
         break;
       case 1:
-        document.getElementById("welcome_section").classList.add("hide");
+        document.getElementById("welcome_section")?.classList.add("hide");
         setTimeout(() => {
           navigate("/projects")
         }, 300)
