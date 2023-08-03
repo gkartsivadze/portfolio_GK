@@ -4,6 +4,7 @@ import useResize from "../hooks/useResize";
 import LookoutAnimation from "../hooks/LookoutAnimation";
 
 import ProjectBlock from "../components/ProjectBlock"
+import Loading from "../components/Loading"
 
 import { projects } from "../projects.json"
 
@@ -13,6 +14,7 @@ export default function Projects() {
     
     return (
         <section id="projects_section">
+            <Loading />
             <div className="projects_wrapper">
                 {
                     projects.map(data => <ProjectBlock key={data.id} liveLink={data.liveUrl} repoLink={data.repoUrl} />)
