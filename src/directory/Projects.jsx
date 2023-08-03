@@ -5,7 +5,6 @@ import LookoutAnimation from "../hooks/LookoutAnimation";
 
 import ProjectBlock from "../components/ProjectBlock"
 import Loading from "../components/Loading"
-import artopiaImage from "../../public/artopia.png"
 
 import { projects } from "../projects.json"
 
@@ -13,10 +12,16 @@ export default function Projects() {
     const windowWidth = useResize();
     const animation = LookoutAnimation( windowWidth );
     const [loadedImagesCounter, setLoadedImagesCounter] = useState(0);
+    const [loadingState, setLoadingState] = useState(true);
+    useEffect(() => {
+        if(loadedImagesCounter == 9) {
+            setLoadingState(false)
+        }
+    },[loadedImagesCounter])
     return (
         <section id="projects_section">
-            <Loading />
-            <div className="projects_wrapper">
+            {loadingState && <Loading />}
+            <div className={`projects_wrapper ${loadingState ? "hidden" : undefined}`}>
                 {
                     projects.map(data => <ProjectBlock loadedEventListener={setLoadedImagesCounter} key={data.id} imgSrc={data.imgSrc} liveLink={data.liveUrl} repoLink={data.repoUrl} />)
                 }
