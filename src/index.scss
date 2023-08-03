@@ -253,6 +253,7 @@ main {
 
   &.hidden {
     animation: none !important;
+    opacity: 0 !important;
   }
   
   &.hide {
