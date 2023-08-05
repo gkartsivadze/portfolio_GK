@@ -1,18 +1,20 @@
 import { useEffect } from "react";
 
-import { gsap, Sine } from "gsap";
+import useResize from "../hooks/useResize";
 
-export default function LookoutAnimation(windowWidth) {
+import { gsap } from "gsap";
+
+export default function LookoutAnimation() {
+    const windowWidth = useResize();
 
     useEffect(() => {
         function mouseMoveHandler(e) {
-            let positionLeft = -(e.pageX - window.innerWidth / 2) / window.innerWidth * 50 + "%";
-            let positionTop = -(e.pageY - window.innerHeight / 2) / window.innerHeight * 50 + "%"
+            let positionLeft = -(e.clientX - window.innerWidth / 2) / window.innerWidth * 60 - 50 + "%";
+            let positionTop = -(e.clientY - window.innerHeight / 2) / window.innerHeight * 60 - 50 + "%"
             
             gsap.to(".projects_wrapper", {
                 "--view-left-position": positionLeft,
-                "--view-top-position": positionTop,
-                ease: Sine
+                "--view-top-position": positionTop
             })
         }
         if(windowWidth > 600) {
