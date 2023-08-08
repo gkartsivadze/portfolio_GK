@@ -1,3 +1,5 @@
-const ADD = () => {
-    return "ADD"
+export const ADD = () => {
+    return {
+        type: "ADD"
+    }
 }

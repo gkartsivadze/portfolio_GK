@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from "react"
 
-export default function ProjectBlock({loadedEventListener, liveLink, repoLink, imgSrc}) {
+import { connect } from "react-redux";
+import { ADD } from "../redux/actions";
+
+function ProjectBlock({ADD, liveLink, repoLink, imgSrc}) {
     
     const imgRef= useRef();
 
@@ -8,7 +11,7 @@ export default function ProjectBlock({loadedEventListener, liveLink, repoLink, i
         imgRef.current.addEventListener("load", handleLoad);
 
         function handleLoad(e) {
-            loadedEventListener(prev => prev+1);
+            ADD();
         }
 
     }, [])
@@ -21,3 +24,11 @@ export default function ProjectBlock({loadedEventListener, liveLink, repoLink, i
         </div>
     )
 };
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        ADD: () => dispatch(ADD())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProjectBlock)

@@ -8,13 +8,20 @@ import Welcome from './directory/Welcome.jsx'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { Provider } from 'react-redux'
+import store from './redux/reducers.jsx'
+
+store.subscribe(() => console.log(store.getState()));
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <BrowserRouter>
+  <BrowserRouter>
+    <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Welcome />} />
           <Route path="/projects" element={<Projects />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </Provider>
+  </BrowserRouter>
 )
