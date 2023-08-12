@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react"
 import { connect } from "react-redux";
 import { ADD } from "../redux/actions";
 
-function ProjectBlock({ADD, liveLink, repoLink, imgSrc}) {
+function ProjectBlock({ADD, liveLink, repoLink, imgSrc, used}) {
     
     const imgRef= useRef();
 
@@ -18,7 +18,14 @@ function ProjectBlock({ADD, liveLink, repoLink, imgSrc}) {
 
     return (
         <div className="project_box">
-            <img ref={imgRef} src={imgSrc} alt="" />
+            <div className="used_wrapper">
+                {used.includes("REACT") && <img src="./react.svg" /> }
+                {used.includes("HTML") && <img src="./html.svg" /> }
+                {used.includes("CSS") && <img src="./css.svg" /> }
+                {used.includes("JS") && <img src="./js.svg" /> }
+                {used.includes("JQUERY") && <img src="./jquery.svg" /> }
+            </div>
+            <img className="project_image" ref={imgRef} src={imgSrc} alt="" />
             <a target="_blank" href={liveLink}>Live</a>
             <a target="_blank" href={repoLink}>Repo</a>
         </div>

@@ -11,8 +11,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './redux/reducers.jsx'
 
-store.subscribe(() => console.log(store.getState()));
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Provider store={store}>

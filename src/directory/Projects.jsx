@@ -17,7 +17,7 @@ function Projects({ loadedImagesCounter }) {
             <section id="projects_section" className={loadedImagesCounter == 9 ? undefined : "hidden"}>
                 <div className="projects_wrapper">
                     {
-                        projects.map(data => <ProjectBlock key={data.id} imgSrc={data.imgSrc} liveLink={data.liveUrl} repoLink={data.repoUrl} />)
+                        projects.map(data => <ProjectBlock key={data.id} imgSrc={data.imgSrc} liveLink={data.liveUrl} repoLink={data.repoUrl} used={data.used} />)
                     }
                 </div>
             </section>
