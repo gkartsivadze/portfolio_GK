@@ -24,6 +24,7 @@ function ProjectBlock({ADD, liveLink, repoLink, imgSrc, used}) {
                 {used.includes("CSS") && <img src="./css.svg" /> }
                 {used.includes("JS") && <img src="./js.svg" /> }
                 {used.includes("JQUERY") && <img src="./jquery.svg" /> }
+                {used.includes("REDUX") && <img src="./redux.svg" /> }
             </div>
             <img className="project_image" ref={imgRef} src={imgSrc} alt="" />
             <a target="_blank" href={liveLink}>Live</a>
