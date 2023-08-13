@@ -318,7 +318,7 @@ main {
       padding: 1rem;
       
       backdrop-filter: blur(1rem);
-      background: linear-gradient(transparent, rgba(0, 255, 255, 0.4), transparent);
+      background: linear-gradient(rgba(0, 0, 0, 0.4), 80%, transparent);
 
       border-radius: 0 0 0 1rem;
       transition: opacity 0.3s;

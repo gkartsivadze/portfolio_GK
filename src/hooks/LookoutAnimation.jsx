@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import useResize from "../hooks/useResize";
 
-import { gsap } from "gsap";
+import { Expo, gsap, Power3, Sine } from "gsap";
 
 export default function LookoutAnimation() {
     const windowWidth = useResize();
@@ -12,9 +12,10 @@ export default function LookoutAnimation() {
             let positionLeft = -(e.clientX - window.innerWidth / 2) / window.innerWidth * 60 - 50 + "%";
             let positionTop = -(e.clientY - window.innerHeight / 2) / window.innerHeight * 60 - 50 + "%"
             
-            gsap.to(".projects_wrapper", {
+            gsap.to(".projects_wrapper", 2, {
                 "--view-left-position": positionLeft,
-                "--view-top-position": positionTop
+                "--view-top-position": positionTop,
+                ease: Expo.easeOut
             })
         }
         if(windowWidth > 600) {

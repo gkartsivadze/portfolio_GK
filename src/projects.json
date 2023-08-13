@@ -6,7 +6,7 @@
             "imgSrc": "./furniture_advanced.png",
             "liveUrl": "https://furniture-rho.vercel.app/",
             "repoUrl": "https://github.com/gkartsivadze/furniture",
-            "used": "REACT"
+            "used": "REACT SCSS"
         },
         {
             "id": 2,
@@ -14,7 +14,7 @@
             "imgSrc": "./artopia.png",
             "liveUrl": "https://artopia-react-git-main-gkartsivadze.vercel.app/",
             "repoUrl": "https://github.com/gkartsivadze/Artopia-React",
-            "used": "REACT"
+            "used": "REACT SCSS"
         },
         {
             "id": 3,
@@ -22,7 +22,7 @@
             "imgSrc": "./space_tourism.png",
             "liveUrl": "https://gkartsivadze.github.io/frontendmentor/space/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/frontendmentor/space",
-            "used": "HTML CSS JS"
+            "used": "HTML CSS JS SCSS"
         },
         {
             "id": 4,
@@ -30,7 +30,7 @@
             "imgSrc": "./financial.png",
             "liveUrl": "https://gkartsivadze.github.io/projects/financial/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/projects/financial",
-            "used": "HTML CSS JS JQUERY"
+            "used": "HTML CSS JS JQUERY SCSS"
         },
         {
             "id": 5,
@@ -38,7 +38,7 @@
             "imgSrc": "./commerce.png",
             "liveUrl": "https://gkartsivadze.github.io/frontendmentor/commerce/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/frontendmentor/commerce",
-            "used": "HTML CSS JS JQUERY"
+            "used": "HTML CSS JS JQUERY SCSS"
         },
         {
             "id": 6,
@@ -54,7 +54,7 @@
             "imgSrc": "./receipt.png",
             "liveUrl": "https://food-recipe-react-sooty.vercel.app/",
             "repoUrl": "https://github.com/gkartsivadze/food-Recipe-react",
-            "used": "REACT REDUX"
+            "used": "REACT REDUX SCSS"
         },
         {
             "id": 8,
