@@ -4,8 +4,8 @@
             "id": 1,
             "name": "Furniture",
             "imgSrc": "./furniture_advanced.png",
-            "liveUrl": "https://furniture-rho.vercel.app/",
-            "repoUrl": "https://github.com/gkartsivadze/furniture",
+            "liveUrl": "https://furniture-advanced.vercel.app/",
+            "repoUrl": "https://github.com/gkartsivadze/furniture_advanced",
             "used": "REACT SCSS"
         },
         {
