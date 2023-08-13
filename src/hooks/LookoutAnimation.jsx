@@ -2,11 +2,16 @@ import { useEffect } from "react";
 
 import useResize from "../hooks/useResize";
 
-import { Expo, gsap, Power3, Sine } from "gsap";
+import { Expo, gsap } from "gsap";
 
 export default function LookoutAnimation() {
     const windowWidth = useResize();
-
+    useEffect(() => {
+        gsap.set(".projects_wrapper", {
+            "--view-left-position": "-50%",
+            "--view-top-position": "-80%",
+        })
+    }, [])
     useEffect(() => {
         function mouseMoveHandler(e) {
             let positionLeft = -(e.clientX - window.innerWidth / 2) / window.innerWidth * 60 - 50 + "%";
