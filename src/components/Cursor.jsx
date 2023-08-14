@@ -17,21 +17,12 @@ export default function Cursor() {
         }
     }
 
-    function handleClick(e) {
-        document.getElementById("cursor").classList.add("click")
-        setTimeout(() => {
-            document.getElementById("cursor").classList.remove("click")
-        }, 50)
-    }
-
 
     useEffect(() => {
         window.addEventListener("mousemove", handleCursor)
-        window.addEventListener("click", handleClick)
 
         return () => {
             window.removeEventListener("mousemove", handleCursor)
-            window.removeEventListener("click", handleClick)
         }
     }, [])
 

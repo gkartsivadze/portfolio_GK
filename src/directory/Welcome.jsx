@@ -1,24 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { gsap, CSSPlugin } from "gsap";
 
 export default function Welcome() {
   gsap.registerPlugin(CSSPlugin);
-  const [randomNumber, setRandomNumber] = useState(gsap.utils.random(25, 115))
-
-  useEffect(() => {
-    const animation = gsap.to('main', {
-      duration: 10, // Animation duration in seconds
-      ease: "none",
-      '--pos-x-1': () => `${gsap.utils.random(0, 50)}%`, // Generate random x position (0% to 100%)
-      '--pos-y-1': () => `${gsap.utils.random(0, 100)}%`, // Generate random y position (0% to 100%)
-      '--pos-x-2': () => `${gsap.utils.random(50, 100)}%`, // Generate random x position (0% to 100%)
-      '--pos-y-2': () => `${gsap.utils.random(0, 100)}%`, // Generate random y position (0% to 100%)
-      onComplete() {
-        setRandomNumber(gsap.utils.random(0, 100));
-      }
-    });
-    return () => animation.kill();
-  }, [randomNumber])
 
   useEffect(() => {
     const hero_animation = gsap.fromTo("#hero_name", {
