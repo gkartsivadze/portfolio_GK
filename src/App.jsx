@@ -6,15 +6,18 @@ import ContactForm from './components/ContactForm'
 import { Outlet } from "react-router-dom";
 import Cursor from "./components/cursor";
 
+import useResize from "./hooks/useResize"
+
 function App() {
   const [contactFormState, setContactFormState] = useState(false)
+  const windowWidth = useResize();
   return (
     <>
       <Navigation setContactForm={setContactFormState} />
       <main>
         <Outlet />
         {contactFormState && <ContactForm setContactForm={setContactFormState} />}
-        <Cursor />
+        {windowWidth > 600 && <Cursor />}
       </main>
     </>
   )
