@@ -4,7 +4,7 @@ import Navigation from "./components/Navigation"
 import ContactForm from './components/ContactForm'
 
 import { Outlet } from "react-router-dom";
-import Cursor from "./components/cursor";
+import Cursor from "./components/Cursor";
 
 import useResize from "./hooks/useResize"
 
