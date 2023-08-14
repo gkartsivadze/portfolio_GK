@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { ADD } from "../redux/actions";
 
 function ProjectBlock({ADD, liveLink, repoLink, imgSrc, used}) {
-    
     const imgRef= useRef();
 
     useEffect(() => {
@@ -21,11 +20,10 @@ function ProjectBlock({ADD, liveLink, repoLink, imgSrc, used}) {
             <div className="used_wrapper">
                 {used.includes("REACT") && <img src="./react.svg" /> }
                 {used.includes("HTML") && <img src="./html.svg" /> }
-                {used.includes("CSS") && <img src="./css.svg" /> }
                 {used.includes("JS") && <img src="./js.svg" /> }
                 {used.includes("JQUERY") && <img src="./jquery.svg" /> }
                 {used.includes("REDUX") && <img src="./redux.svg" /> }
-                {used.includes("SCSS") && <img src="./scss.svg" /> }
+                {used.includes("SCSS") ? <img src="./scss.svg" /> : <img src="./css.svg" />}
             </div>
             <img className="project_image" ref={imgRef} src={imgSrc} alt="" />
             <a target="_blank" href={liveLink}>Live</a>

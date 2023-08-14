@@ -22,7 +22,7 @@
             "imgSrc": "./space_tourism.png",
             "liveUrl": "https://gkartsivadze.github.io/frontendmentor/space/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/frontendmentor/space",
-            "used": "HTML CSS JS SCSS"
+            "used": "HTML JS SCSS"
         },
         {
             "id": 4,
@@ -30,7 +30,7 @@
             "imgSrc": "./financial.png",
             "liveUrl": "https://gkartsivadze.github.io/projects/financial/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/projects/financial",
-            "used": "HTML CSS JS JQUERY SCSS"
+            "used": "HTML JS JQUERY SCSS"
         },
         {
             "id": 5,
@@ -38,7 +38,7 @@
             "imgSrc": "./commerce.png",
             "liveUrl": "https://gkartsivadze.github.io/frontendmentor/commerce/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/frontendmentor/commerce",
-            "used": "HTML CSS JS JQUERY SCSS"
+            "used": "HTML JS JQUERY SCSS"
         },
         {
             "id": 6,

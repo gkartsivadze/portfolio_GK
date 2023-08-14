@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation"
 import ContactForm from './components/ContactForm'
 
 import { Outlet } from "react-router-dom";
+import Cursor from "./components/cursor";
 
 function App() {
   const [contactFormState, setContactFormState] = useState(false)
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Outlet />
         {contactFormState && <ContactForm setContactForm={setContactFormState} />}
+        <Cursor />
       </main>
     </>
   )
