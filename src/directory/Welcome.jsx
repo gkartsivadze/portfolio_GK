@@ -4,17 +4,29 @@ import { gsap, CSSPlugin } from "gsap";
 export default function Welcome() {
   gsap.registerPlugin(CSSPlugin);
 
+  function handleCursorAnimation(e) {
+    gsap.to("main", {
+      "--position-x": e.clientX + "px",
+      "--position-y": e.clientY + "px"
+    })
+  }
+
   useEffect(() => {
     const hero_animation = gsap.fromTo("#hero_name", {
       "--radial-position": "-2rem"
     }, {
       "--radial-position": "100%"
     }).repeat(-1)
-      .duration(3)
+      .duration(3);
+    gsap.set("main", {
+        "--position-x": "50%",
+        "--position-y": "50%"
+      })
     return () => hero_animation.kill()
   }, [])
+
   return (
-    <section id="welcome_section">
+    <section id="welcome_section" onMouseMove={handleCursorAnimation}>
         <div className="hero_wrapper">
           <h1 id="hero_name">GIORGI KARTSIVADZE</h1>
           <div className="horizontal_line"></div>

@@ -159,7 +159,6 @@ main {
 }
 
 #welcome_section {
-  z-index: 1;
   padding: 10rem 8rem;
 
   transition: 0.3s;
@@ -170,8 +169,12 @@ main {
   justify-content: space-between;
   flex-direction: column;
 
+  background: url(../public/background.png),
+              radial-gradient(var(--circle-radius, 30rem) at var(--position-x, 50%) var(--position-y, 50%), white, 15%, rgba(0, 255, 255, 0.3), 80%, black);
+  background-size: cover;
+
   &.hide {
-    animation: welcomeHide 0.3s forwards;
+    animation: welcomeHide 0.5s forwards;
   }
 
   .horizontal_line {
@@ -233,23 +236,20 @@ main {
 
 @keyframes welcomeShow {
   0% {
-    transform: translateY(-100%);
+    opacity: 0;
   }
-
   100% {
     opacity: 1;
-    transform: translate(0%);
   }
 }
 
 @keyframes welcomeHide {
   0% {
     opacity: 1;
-    transform: translate(0%);
   }
 
   100% {
-    transform: translateY(-100%);
+    opacity: 0;
   }
 }
 

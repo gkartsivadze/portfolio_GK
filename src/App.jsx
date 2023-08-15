@@ -11,6 +11,7 @@ import useResize from "./hooks/useResize"
 function App() {
   const [contactFormState, setContactFormState] = useState(false)
   const windowWidth = useResize();
+
   return (
     <>
       <Navigation setContactForm={setContactFormState} />

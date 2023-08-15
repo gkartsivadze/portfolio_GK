@@ -4,6 +4,7 @@ import { gsap } from "gsap"
 
 export default function Cursor() {
     const [currentTarget, setCurrentTarget] = useState("live")
+    
     function handleCursor(e) {
         gsap.to("#cursor", 0.25, {
             "--translate-x": e.clientX + "px",
