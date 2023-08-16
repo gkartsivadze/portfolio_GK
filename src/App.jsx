@@ -2,6 +2,7 @@ import React, { useState } from "react"
 
 import Navigation from "./components/Navigation"
 import ContactForm from './components/ContactForm'
+import BackgroundComponent from "./components/BackgroundComponent";
 
 import { Outlet } from "react-router-dom";
 import Cursor from "./components/Cursor";

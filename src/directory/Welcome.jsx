@@ -1,15 +1,9 @@
 import React, { useEffect } from "react";
-import { gsap, CSSPlugin } from "gsap";
+import { gsap } from "gsap";
+
+import BackgroundComponent from "../components/BackgroundComponent";
 
 export default function Welcome() {
-  gsap.registerPlugin(CSSPlugin);
-
-  function handleCursorAnimation(e) {
-    gsap.to("main", {
-      "--position-x": e.clientX + "px",
-      "--position-y": e.clientY + "px"
-    })
-  }
 
   useEffect(() => {
     const hero_animation = gsap.fromTo("#hero_name", {
@@ -18,15 +12,13 @@ export default function Welcome() {
       "--radial-position": "100%"
     }).repeat(-1)
       .duration(3);
-    gsap.set("main", {
-        "--position-x": "50%",
-        "--position-y": "50%"
-      })
     return () => hero_animation.kill()
   }, [])
 
   return (
-    <section id="welcome_section" onMouseMove={handleCursorAnimation}>
+    <>
+    <BackgroundComponent />
+    <section id="welcome_section">
         <div className="hero_wrapper">
           <h1 id="hero_name">GIORGI KARTSIVADZE</h1>
           <div className="horizontal_line"></div>
@@ -42,5 +34,6 @@ export default function Welcome() {
           <div className="horizontal_line"></div>
         </div>
     </section>
+    </>
   )
 };

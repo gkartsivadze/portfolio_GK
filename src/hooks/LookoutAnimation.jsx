@@ -7,7 +7,7 @@ import { Expo, gsap } from "gsap";
 export default function LookoutAnimation() {
     const windowWidth = useResize();
     useEffect(() => {
-        gsap.set(".projects_wrapper", {
+        gsap?.set(".projects_wrapper", {
             "--view-left-position": "-50%",
             "--view-top-position": "-80%",
         })

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;500;700&family=Poppins:wght@200;400;900&display=swap');
 
 :root {
-  --background: #252525;
+  --background: rgb(0, 67, 67);
   --black: black;
   --white: #fff;
   --cyan: #00FFFF;
@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: white;
-  background-color: var(--background);
+  background: linear-gradient(var(--background), black, var(--background));
 
   ::-webkit-scrollbar {
     background: transparent;
@@ -97,9 +97,10 @@ nav {
   }
 }
 
-main {
+body {
   overflow: hidden;
   height: 100vh;
+
 }
 
 #cursor_wrapper {
@@ -168,10 +169,6 @@ main {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
-  background: url(../public/background.png),
-              radial-gradient(var(--circle-radius, 30rem) at var(--position-x, 50%) var(--position-y, 50%), white, 15%, rgba(0, 255, 255, 0.3), 80%, black);
-  background-size: cover;
 
   &.hide {
     animation: welcomeHide 0.5s forwards;
@@ -880,5 +877,26 @@ main {
 @media (min-width: 600px) {
   .project_box a {
     cursor: none !important;
+  }
+}
+
+#background_component {
+  position: absolute;
+  width: 110vw;
+  height: 110vh;
+  left: -7rem;
+  top: -7rem;
+  z-index: -1;
+  box-sizing: border-box;
+  polygon {
+    fill: url(#grad);
+    &:nth-of-type(2n + 3) {
+      fill: url(#grad-reverse)
+    }
+    transition: filter 0.3s;
+    &.active {
+      
+      filter: drop-shadow(0 0 2rem cyan);
+    }
   }
 }
