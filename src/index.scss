@@ -890,13 +890,14 @@ body {
   box-sizing: border-box;
   polygon {
     fill: url(#grad);
-    &:nth-of-type(2n + 3) {
+
+    &:nth-of-type(2n + 1) {
       fill: url(#grad-reverse)
     }
+
     transition: filter 0.3s;
     &.active {
-      
-      filter: drop-shadow(0 0 2rem cyan);
+      filter: drop-shadow(0 0 0.3rem white) invert(0.5);
     }
   }
 }
