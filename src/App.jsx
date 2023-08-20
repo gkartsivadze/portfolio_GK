@@ -5,7 +5,7 @@ import ContactForm from './components/ContactForm'
 import BackgroundComponent from "./components/BackgroundComponent";
 
 import { Outlet } from "react-router-dom";
-import Cursor from "./components/Cursor";
+import Cursor from "./components/cursor";
 
 import useResize from "./hooks/useResize"
 
