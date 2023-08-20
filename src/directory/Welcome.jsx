@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 
-import BackgroundComponent from "../components/BackgroundComponent";
-
 export default function Welcome() {
 
   useEffect(() => {
@@ -16,8 +14,6 @@ export default function Welcome() {
   }, [])
 
   return (
-    <>
-    <BackgroundComponent />
     <section id="welcome_section">
         <div className="hero_wrapper">
           <h1 id="hero_name">GIORGI KARTSIVADZE</h1>
@@ -34,6 +30,5 @@ export default function Welcome() {
           <div className="horizontal_line"></div>
         </div>
     </section>
-    </>
   )
 };
