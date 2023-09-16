@@ -17,7 +17,7 @@ export default function LookoutAnimation() {
             let positionLeft = -(e.clientX - window.innerWidth / 2) / window.innerWidth * 60 - 50 + "%";
             let positionTop = -(e.clientY - window.innerHeight / 2) / window.innerHeight * 60 - 50 + "%"
             
-            gsap.to(".projects_wrapper", 2, {
+            gsap?.to(".projects_wrapper", 2, {
                 "--view-left-position": positionLeft,
                 "--view-top-position": positionTop,
                 ease: Expo.easeOut

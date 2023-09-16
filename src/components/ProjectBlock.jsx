@@ -25,7 +25,7 @@ function ProjectBlock({ADD, liveLink, repoLink, imgSrc, used}) {
                 {used.includes("REDUX") && <img src="./redux.svg" /> }
                 {used.includes("SCSS") ? <img src="./scss.svg" /> : <img src="./css.svg" />}
             </div>
-            <img className="project_image" ref={imgRef} src={imgSrc} alt="" />
+            <img className="project_image" ref={imgRef} src={imgSrc} alt="" onLoad={() => console.log(imgSrc + " Is loaded")} />
             <a target="_blank" href={liveLink}>Live</a>
             <a target="_blank" href={repoLink}>Repo</a>
         </div>

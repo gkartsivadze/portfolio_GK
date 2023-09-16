@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import LookoutAnimation from "../hooks/LookoutAnimation";
 
@@ -9,7 +9,8 @@ import { projects } from "../projects.json"
 import { connect } from "react-redux";
 
 function Projects({ loadedImagesCounter }) {
-    const animation = LookoutAnimation();
+
+    LookoutAnimation();
 
     return (
         <>
