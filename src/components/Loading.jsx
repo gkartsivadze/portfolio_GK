@@ -1,8 +1,9 @@
 import React from "react";
 import { Triangle } from "react-loader-spinner";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function Loading({loadedImagesCounter}) {
+export default function Loading() {
+    const loadedImagesCounter = useSelector(state => state.counter.value)
     return (
         <div id="loading">
             <Triangle width={100} height={100} color="cyan" />
@@ -10,11 +11,3 @@ function Loading({loadedImagesCounter}) {
         </div>
     )
 };
-
-const mapStateToProps = (state) => {
-    return {
-        loadedImagesCounter: state.count
-    }
-}
-
-export default connect(mapStateToProps, null)(Loading)

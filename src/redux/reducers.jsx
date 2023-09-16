@@ -1,19 +1,21 @@
-import { createStore } from "redux"
+import { createSlice } from '@reduxjs/toolkit'
 
-const loadedImagesCounterReducer = (state = {count: 0}, action) => {
-    switch(action.type) {
-        case "ADD":
-            if(state.count >= 9) return {count: state.count}
-            return {
-                count: state.count+1
-            }
-        default:
-            return {
-                count: state.count
-            }
-    }
+const initialState = {
+    value: 0,
 }
 
-const store = createStore(loadedImagesCounterReducer);
+export const loadedImagesCounterSlice = createSlice({
+    name: 'loadedImages',
+    initialState,
+    reducers: {
+        increment: (state) => {
+            state.value += 1
+        },
+        refresh: (state) => {
+            state.value = 0
+        }
+    },
+})
 
-export default store;
+export const { increment, refresh } = loadedImagesCounterSlice.actions
+export default loadedImagesCounterSlice.reducer;

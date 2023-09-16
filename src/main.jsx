@@ -9,7 +9,7 @@ import Welcome from './directory/Welcome.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
-import store from './redux/reducers.jsx'
+import { store } from './redux/store.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>

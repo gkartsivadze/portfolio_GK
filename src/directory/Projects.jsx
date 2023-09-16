@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import LookoutAnimation from "../hooks/LookoutAnimation";
 
@@ -6,9 +6,10 @@ import ProjectBlock from "../components/ProjectBlock"
 import Loading from "../components/Loading"
 
 import { projects } from "../projects.json"
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function Projects({ loadedImagesCounter }) {
+export default function Projects() {
+    const loadedImagesCounter = useSelector(state => state.counter.value)
 
     LookoutAnimation();
 
@@ -25,11 +26,3 @@ function Projects({ loadedImagesCounter }) {
         </>
     )
 };
-
-const mapStateToProps = (state) => {
-    return {
-        loadedImagesCounter: state.count
-    }
-}
-
-export default connect(mapStateToProps, null)(Projects)

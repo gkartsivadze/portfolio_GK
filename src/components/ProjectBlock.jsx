@@ -1,19 +1,9 @@
-import React, { useRef, useEffect } from "react"
+import React from "react"
+import { useDispatch } from "react-redux"
+import { increment } from "../redux/reducers"
 
-import { connect } from "react-redux";
-import { ADD } from "../redux/actions";
-
-function ProjectBlock({ADD, liveLink, repoLink, imgSrc, used}) {
-    const imgRef= useRef();
-
-    useEffect(() => {
-        imgRef.current.addEventListener("load", handleLoad);
-
-        function handleLoad(e) {
-            ADD();
-        }
-
-    }, [])
+export default function ProjectBlock({ liveLink, repoLink, imgSrc, used}) {
+    const dispatch = useDispatch()
 
     return (
         <div className="project_box">
@@ -25,17 +15,9 @@ function ProjectBlock({ADD, liveLink, repoLink, imgSrc, used}) {
                 {used.includes("REDUX") && <img src="./redux.svg" /> }
                 {used.includes("SCSS") ? <img src="./scss.svg" /> : <img src="./css.svg" />}
             </div>
-            <img className="project_image" ref={imgRef} src={imgSrc} alt="" onLoad={() => console.log(imgSrc + " Is loaded")} />
+            <img className="project_image" src={imgSrc} alt="" onLoad={() => dispatch(increment())} />
             <a target="_blank" href={liveLink}>Live</a>
             <a target="_blank" href={repoLink}>Repo</a>
         </div>
     )
 };
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        ADD: () => dispatch(ADD())
-    }
-}
-
-export default connect(null, mapDispatchToProps)(ProjectBlock)

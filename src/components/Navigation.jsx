@@ -1,8 +1,11 @@
 import React from "react"
+import { useDispatch } from "react-redux";
 
 import { useNavigate } from "react-router-dom"
+import { refresh } from "../redux/reducers";
 
 export default function Navigation({ setContactForm }) {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   function handleClick(e, link) {
@@ -17,6 +20,7 @@ export default function Navigation({ setContactForm }) {
       case 1:
         document.getElementById("welcome_section")?.classList.add("hide");
         setTimeout(() => {
+          dispatch(refresh())
           navigate("/projects")
         }, 300)
         break;
